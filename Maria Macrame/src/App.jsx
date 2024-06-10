@@ -1,12 +1,14 @@
 
 
-import Navbar from './Components/Navbar'; // Ensure the path is correct
+import Navbar from './Components/Navbar'; 
+import Hero from './Components/Hero';// Ensure the path is correct
 
 function App() {
   return (
     <>
       <Navbar />
-      {/* Add other components or content here */}
+      <Hero />
+
     </>
   );
 }

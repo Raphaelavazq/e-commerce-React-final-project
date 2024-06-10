@@ -38,7 +38,7 @@ function NavItems() {
 function LoginButton() {
   return (
     <button
-      className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-lg shadow-sm max-md:px-5 hover:bg-lime-700"
+      className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-md shadow-sm max-md:px-5 hover:bg-lime-700"
     >
       Log in
     </button>
