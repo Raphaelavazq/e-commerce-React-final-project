@@ -10,7 +10,6 @@ function NavItem({ children, href }) {
   );
 }
 
-// PropTypes for NavItem
 NavItem.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
@@ -38,7 +37,7 @@ function NavItems() {
 function LoginButton() {
   return (
     <button
-      className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-md shadow-sm max-md:px-5 hover:bg-lime-700"
+      className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-lg shadow-sm max-md:px-5 hover:bg-lime-700"
     >
       Log in
     </button>
@@ -55,17 +54,16 @@ function NavBar() {
   };
 
   return (
-    <header className="flex flex-col md:flex-row md:items-center gap- px-4 py-1 font-medium text-white bg-teal-900">
+    <header className="flex flex-col md:flex-row md:items-center gap-5 px-4 py-1 font-medium text-white bg-teal-900">
       {/* Logo */}
       <div className="flex justify-between items-center w-full md:w-auto">
         <div className="flex items-center space-x-4">
-          
-          <div className="text-2xl leading-tight md:text-3xl md:leading-[84px]">
+          <div className="pl-10 text-2xl leading-tight md:text-3xl md:leading-[84px]">
             Maria Macramé
           </div>
         </div>
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white text-4xl p-4"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
