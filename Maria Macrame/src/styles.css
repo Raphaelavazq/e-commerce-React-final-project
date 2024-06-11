@@ -22,3 +22,15 @@
     padding-bottom: 100px;
     display: block;
   }
+
+/* Webkit-specific styles */
+.value-card {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.value-card img {
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+}
+

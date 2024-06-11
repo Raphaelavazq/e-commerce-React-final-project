@@ -1,23 +1,36 @@
-
 import PropTypes from 'prop-types';
-import bioPlantsImage from '../assets/bioPlantsImage.png';
-import sustainabilityImage from '../assets/sustainabilityImage.png';
-import handmadeImage from '../assets/handmadeImage.png';
-import fastDeliveryImage from '../assets/fastDeliveryImage.png';
+import { motion } from 'framer-motion';
+import bioImage from '../assets/bio.svg';
+import sustainabilityImage from '../assets/sustainability.svg';
+import handmadeImage from '../assets/handmade.svg';
+import deliveryImage from '../assets/delivery.svg';
 
-// ValueCard component to render individual value cards with links
+// ValueCard component to render individual value cards with links and animations
 function ValueCard({ src, alt, title, href }) {
   return (
-    <article className="flex flex-col items-center p-4">
+    <motion.article
+      className="value-card flex flex-col items-center p-4"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex flex-col grow justify-center p-5 mt-4 sm:mt-0">
-        <a href={href} className="flex justify-center items-center">
-          <img loading="lazy" src={src} alt={alt} className="w-2/3 h-auto" />
+        <a
+          href={href}
+          className="value-card-link flex justify-center items-center"
+        >
+          <img
+            loading="lazy"
+            src={src}
+            alt={alt}
+            className="w-20 h-20"
+          />
         </a>
         <div className="mt-5 text-2xl font-semibold leading-8 text-center text-teal-900">
           {title}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -33,28 +46,28 @@ ValueCard.propTypes = {
 function ValuesSection() {
   const values = [
     {
-      src: bioPlantsImage,
-      alt: "An image representing Bio Plants",
-      title: "Bio Plants",
-      href: "#bio-plants",
+      src: bioImage,
+      alt: 'An image representing Bio Plants',
+      title: 'Bio Plants',
+      href: '#bio-plants',
     },
     {
       src: sustainabilityImage,
-      alt: "An image representing Sustainability",
-      title: "Sustainability",
-      href: "#sustainability",
+      alt: 'An image representing Sustainability',
+      title: 'Sustainability',
+      href: '#sustainability',
     },
     {
       src: handmadeImage,
-      alt: "An image representing Handmade",
-      title: "Handmade",
-      href: "#handmade",
+      alt: 'An image representing Handmade',
+      title: 'Handmade',
+      href: '#handmade',
     },
     {
-      src: fastDeliveryImage,
-      alt: "An image representing Fast Delivery",
-      title: "Fast Delivery",
-      href: "#fast-delivery",
+      src: deliveryImage,
+      alt: 'An image representing Fast Delivery',
+      title: 'Fast Delivery',
+      href: '#fast-delivery',
     },
   ];
 
@@ -69,7 +82,7 @@ function ValuesSection() {
           The values we live by
         </h2>
         {/* Value Cards Section */}
-        <section className="flex flex-wrap justify-center md:justify-start self-stretch px-4 pt-20 mt-8 bg-white ">
+        <section className="flex flex-wrap justify-center md:justify-start self-stretch px-4 pt-20 mt-8 bg-white border-t border-solid border-slate-600">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
             {/* Render Value Cards */}
             {values.map((value, index) => (
