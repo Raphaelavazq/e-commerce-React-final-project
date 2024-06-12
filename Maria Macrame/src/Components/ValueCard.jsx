@@ -72,7 +72,7 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center px-4 md:px-16 pt-8 bg-white">
+    <section className="flex flex-col items-center px-2 md:px-12 pt-8 bg-white">
       <div className="flex flex-col items-center max-w-full w-full lg:w-[1030px]">
         {/* Section Header */}
         <header className="text-5xl font-bold text-lime-600 leading-[55.2px] tracking-[5.28px] text-center md:text-left max-md:text-4xl">

@@ -2,10 +2,10 @@ import heroImage from '../assets/hero-img.png';
 
 function Hero() {
   return (
-    <section className="pb-3 pl-10 bg-white   sm:pl-10 md:pl-14">
-      <div className="flex gap-5 flex-col-reverse md:flex-row">
+    <section className="pb-3 bg-white flex flex-col items-center">
+      <div className="flex gap-5 flex-col-reverse md:flex-row w-full max-w-7xl px-4 md:px-12">
         {/* Text Content */}
-        <div className="flex flex-col w-full md:w-[43%]">
+        <div className="flex flex-col w-full md:w-[50%]">
           <div className="flex flex-col font-medium mt-10 md:mt-0">
             <h1 className="md:px-0.5 md:pt-40 text-4xl md:text-6xl leading-[66px] md:leading-[97px] text-stone-800">
               Maria&apos;s Boho <br /> Botanicals
@@ -27,7 +27,7 @@ function Hero() {
           <img
             loading="lazy"
             src={heroImage}
-            className="w-full h-auto "
+            className="w-full h-auto"
             alt="Maria’s Boho Botanicals"
           />
         </div>

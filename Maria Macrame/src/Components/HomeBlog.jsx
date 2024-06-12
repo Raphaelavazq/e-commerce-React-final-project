@@ -2,30 +2,31 @@ import { motion } from 'framer-motion';
 
 const HomeBlog = () => {
   return (
-    <section className="bg-white w-full">
+    <section className="bg-white w-full flex flex-col items-center">
       <motion.header
-        className="flex flex-col items-center bg-white w-full"
+        className="flex flex-col items-center bg-white w-full max-w-7xl px-4 md:px-16"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="w-full flex flex-col items-center px-4 py-16">
+        <div className="w-full flex flex-col items-center py-16">
           <h1 className="text-6xl font-bold text-teal-900">Botanical Blog</h1>
           <h2 className="text-4xl text-lime-600 mt-8">Green Insights</h2>
         </div>
       </motion.header>
 
       <motion.div
-        className="w-full flex flex-col md:flex-row items-center md:justify-between px-4 py-8"
+        className="w-full flex flex-col md:flex-row items-center md:justify-between px-4 md:px-16 py-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7 }}
       >
-        <div className="flex flex-col w-full md:w-1/2 md:pr-4 items-center md:items-start">
-          <h3 className="text-3xl font-semibold text-teal-900 mb-4 text-center md:text-left">The Art of Macramé: 
-          A Beginner’s Guide</h3>
+        <div className="flex flex-col w-full md:w-1/2 md:pr-8 items-center md:items-start">
+          <h3 className="text-3xl font-semibold text-teal-900 mb-4 text-center md:text-left">
+            The Art of Macramé: <br /> A Beginner’s Guide
+          </h3>
           <p className="text-lg text-zinc-500 mb-4 text-center md:text-left">
-          An introductory article about the history, techniques, and basic knots used in macramé.
+            An introductory article about the history, techniques, and basic knots used in macramé.
           </p>
           <button
             className="px-6 py-3 text-white bg-teal-900 rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50"
@@ -45,7 +46,7 @@ const HomeBlog = () => {
       </motion.div>
 
       <motion.div
-        className="w-full flex flex-col md:flex-row items-center md:justify-between px-4 py-8"
+        className="w-full flex flex-col md:flex-row items-center md:justify-between px-4 md:px-16 py-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.9 }}
@@ -58,11 +59,12 @@ const HomeBlog = () => {
             className="w-full rounded-lg"
           />
         </div>
-        <div className="flex flex-col w-full md:w-1/2 md:pl-4 order-1 md:order-2 items-center md:items-start">
-          <h3 className="text-3xl font-semibold text-teal-900 mb-4 text-center md:text-left">Houseplants 
-          That Purify the Air</h3>
+        <div className="flex flex-col w-full md:w-1/2 md:pl-8 order-1 md:order-2 items-center md:items-start">
+          <h3 className="text-3xl font-semibold text-teal-900 mb-4 text-center md:text-left">
+            Houseplants <br /> That Purify the Air
+          </h3>
           <p className="text-lg text-zinc-500 mb-4 text-center md:text-left">
-          Information about plants known for their air-purifying qualities and how to care for them
+            Information about plants known for their air-purifying qualities and how to care for them.
           </p>
           <button
             className="px-6 py-3 text-white bg-teal-900 rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50"

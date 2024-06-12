@@ -3,6 +3,9 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import ValueCard from './Components/ValueCard';
 import HomeBlog from './Components/HomeBlog';
+import HomeCarroussel from './Components/HomeCarroussel';
+
+
 function App() {
   return (
     <>
@@ -10,6 +13,7 @@ function App() {
       <Hero />
       <ValueCard />
       <HomeBlog/>
+      <HomeCarroussel/>
     </>
   );
 }
