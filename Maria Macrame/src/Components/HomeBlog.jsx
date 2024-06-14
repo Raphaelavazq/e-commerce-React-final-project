@@ -10,7 +10,7 @@ const HomeBlog = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="w-full flex flex-col items-center py-16">
-          <h1 className="text-6xl font-bold text-teal-900">Botanical Blog</h1>
+          <h1 className="text-5xl font-bold text-teal-900">Botanical Blog</h1>
           <h2 className="text-4xl text-lime-600 mt-8">Green Insights</h2>
         </div>
       </motion.header>

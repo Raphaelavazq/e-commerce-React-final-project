@@ -5,6 +5,7 @@ import HomeBlog from './Components/HomeBlog';
 import HomeCarroussel from './Components/HomeCarroussel';
 import MovingCards from './Components/MovingCards'; 
 import LeafDecoration from './Components/LeafDecoration'; 
+import PopularPlantSlider from './Components/PopularPlantSlider';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <HomeBlog />
       <MovingCards />
       <HomeCarroussel />
+      <PopularPlantSlider />
     </>
   );
 }
