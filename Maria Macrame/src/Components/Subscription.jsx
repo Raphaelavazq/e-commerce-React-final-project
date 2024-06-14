@@ -17,7 +17,7 @@ const Subscription = () => {
         alt="Leaf Decoration 2"
         className="leaf-decoration leaf2"
       />
-      <h2 className="text-3xl md:text-4xl font-bold text-teal-900 mb-4 text-center">
+      <h2 className="text-3xl md:text-4xl text-pretty font-bold text-teal-900 mb-4 text-center">
         Get updates on the latest drops & collections.
       </h2>
       <div className="flex justify-center items-center space-x-4 mb-8 text-teal-900">
@@ -25,16 +25,16 @@ const Subscription = () => {
           <FaCheckCircle className="mr-2" />
           <span>Exclusive drops</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex text-pretty items-center">
           <FaCheckCircle className="mr-2" />
           <span>Monthly discounts</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex text-pretty items-center">
           <FaCheckCircle className="mr-2" />
           <span>Event invites</span>
         </div>
       </div>
-      <form className="w-full max-w-md flex items-center">
+      <form className="w-full text-pretty max-w-md flex items-center">
         <input
           type="email"
           placeholder="Enter your email"
@@ -47,7 +47,7 @@ const Subscription = () => {
           Signup
         </button>
       </form>
-      <p className="text-gray-500 mt-4 text-center text-sm">
+      <p className="text-pretty text-teal-900 mt-4 text-center text-sm">
         No spam, no sharing, just quality content.
       </p>
     </section>

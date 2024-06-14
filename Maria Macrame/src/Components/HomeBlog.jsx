@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const HomeBlog = () => {
   return (
-    <section className="bg-white w-full flex flex-col items-center">
+    <section className="bg-white text-pretty w-full flex flex-col items-center">
       <motion.header
         className="flex flex-col items-center bg-white w-full max-w-7xl px-4 md:px-16"
         initial={{ opacity: 0, y: 50 }}

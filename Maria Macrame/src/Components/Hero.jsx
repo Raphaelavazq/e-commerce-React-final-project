@@ -2,7 +2,7 @@ import heroVideo from '../assets/herovideo.mp4'; // Adjust the import path as ne
 
 function Hero() {
   return (
-    <section className="pt-20 pb-10 bg-white flex flex-col items-center border-b-2 border-lime-600">
+    <section className="pt-20 pb-10 bg-white flex flex-col items-center ">
       <div className="relative w-full max-w-7xl px-4 md:px-12">
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Video Content */}
@@ -19,8 +19,8 @@ function Hero() {
               Your browser does not support the video tag.
             </video>
             {/* Overlay Content for mobile */}
-            <div className="absolute inset-0 flex flex-col justify-center items-start p-4 bg-lime-600 bg-opacity-30 md:hidden">
-              <h1 className="text-2xl font-bold text-white leading-tight">
+            <div className="absolute inset-0 flex text-pretty flex-col justify-center items-start p-4 bg-teal-900 bg-opacity-30 md:hidden">
+              <h1 className="text-2xl text-pretty font-bold text-teal-900  leading-tight">
                 Surround Yourself <br /> with <br />Nature’s Elegance
               </h1>
               <div className="flex gap-2 justify-start mt-4 text-xs">
@@ -38,7 +38,7 @@ function Hero() {
 
           {/* Text Content for medium and larger screens */}
           <div className="hidden md:flex flex-col justify-center items-start md:p-10">
-            <h1 className="text-3xl lg:text-5xl font-bold text-teal-700 leading-tight lg:leading-[1.2]">
+            <h1 className="text-3xl lg:text-5xl font-bold text-teal-900 leading-tight lg:leading-[1.2]">
               Surround Yourself <br /> with <br />Nature’s Elegance
             </h1>
             <div className="flex gap-3.5 justify-start mt-8 text-sm lg:text-base">

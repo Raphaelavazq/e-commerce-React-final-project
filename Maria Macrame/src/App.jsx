@@ -1,28 +1,16 @@
-import Navbar from './Components/Navbar'; 
-import Hero from './Components/Hero';
-import ValueCard from './Components/ValueCard';
-import HomeBlog from './Components/HomeBlog';
-import HomeCarroussel from './Components/HomeCarroussel';
-import MovingCards from './Components/MovingCards'; 
-import LeafDecoration from './Components/LeafDecoration'; 
-import PopularPlantSlider from './Components/PopularPlantSlider';
-import Subscription from './Components/Subscription';
-import Footer from './Components/Footer';
+// src/App.jsx
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "@pages/HomePage";
+import ProductDetails from "@pages/ProductDetails";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <ValueCard />
-      <LeafDecoration />
-      <HomeBlog />
-      <MovingCards />
-      <HomeCarroussel />
-      <PopularPlantSlider />
-      <Subscription />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+      </Routes>
+    </Router>
   );
 }
 
