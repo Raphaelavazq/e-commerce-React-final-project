@@ -59,7 +59,7 @@ function NavBar() {
       <div className="flex justify-between items-center w-full md:w-auto">
         <div className="flex items-center space-x-4">
           <div className="pl-10 text-2xl leading-tight md:text-3xl md:leading-[84px]">
-            Maria Macramé
+            Maria 
           </div>
         </div>
         <button

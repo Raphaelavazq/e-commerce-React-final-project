@@ -72,7 +72,7 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center px-2 md:px-12 pt-8 bg-white">
+    <section className=" flex flex-col items-center px-2 md:px-12 pt-20 bg-white">
       <div className="flex flex-col items-center max-w-full w-full lg:w-[1030px]">
         {/* Section Header */}
         <header className="text-5xl font-bold text-lime-600 leading-[55.2px] tracking-[5.28px] text-center md:text-left max-md:text-4xl">
@@ -82,7 +82,7 @@ function ValuesSection() {
           The values we live by
         </h2>
         {/* Value Cards Section */}
-        <section className="flex flex-wrap justify-center md:justify-start self-stretch px-4 pt-20 mt-8 bg-white border-t border-solid border-slate-600">
+        <section className="flex flex-wrap justify-center md:justify-start self-stretch px-4 pt-20 mt-8 bg-white ">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
             {/* Render Value Cards */}
             {values.map((value, index) => (

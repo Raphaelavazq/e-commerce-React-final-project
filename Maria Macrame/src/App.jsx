@@ -10,14 +10,12 @@ function App() {
   return (
     <>
       <Navbar />
-
       <Hero />
-
       <ValueCard />
       <LeafDecoration />
       <HomeBlog />
-      <HomeCarroussel />
       <MovingCards />
+      <HomeCarroussel />
     </>
   );
 }
