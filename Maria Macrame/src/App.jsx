@@ -7,6 +7,7 @@ import MovingCards from './Components/MovingCards';
 import LeafDecoration from './Components/LeafDecoration'; 
 import PopularPlantSlider from './Components/PopularPlantSlider';
 import Subscription from './Components/Subscription';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <HomeCarroussel />
       <PopularPlantSlider />
       <Subscription />
+      <Footer />
     </>
   );
 }
