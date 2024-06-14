@@ -1,0 +1,54 @@
+.subscription-section {
+  position: relative;
+  background-color: white;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaf-decoration {
+  position: absolute;
+  width: 60px; /* Default size for mobile */
+  height: auto;
+}
+
+.leaf1 {
+  top: 30px; /* Adjust positioning for mobile */
+  left: -8px; /* Adjust positioning for mobile */
+}
+
+.leaf2 {
+  top: 140px; /* Adjust positioning for mobile */
+  right: 5px; /* Adjust positioning for mobile */
+}
+
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+  .leaf-decoration {
+    width: 200px; /* Adjust size as needed for larger screens */
+  }
+
+  .leaf1 {
+    top: 0px;
+    left: 0px; /* Adjust positioning for larger screens */
+  }
+
+  .leaf2 {
+    top: 0px;
+    right: 0px; /* Adjust positioning for larger screens */
+  }
+}
+
+/* For desktop screens */
+@media (min-width: 1024px) {
+  .leaf1 {
+    top: 0px;
+    left: 0px; /* Adjust positioning for larger screens */
+  }
+
+  .leaf2 {
+    top: 0px;
+    right: 0px; /* Adjust positioning for larger screens */
+  }
+}
