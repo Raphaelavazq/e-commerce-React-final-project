@@ -1,5 +1,6 @@
-// src/components/Footer.jsx
+import './Footer.css'
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -8,15 +9,16 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           {/* Left side */}
           <div className="mb-8 md:mb-0">
-            <h2 className="text-lg text-centered selection:font-bold mb-4">MARIA </h2>
+            <h2 className="text-lg text-centered selection:font-bold mb-4">
+              <Link to="/">MARIA</Link>
+            </h2>
             <h3 className="text-xl font-bold mb-2">Pages</h3>
             <ul className="space-y-2 md:space-y-0 md:flex md:flex-col">
-              <li className="mb-2 underline md:mb-0"><a href="#">Home</a></li>
-              <li className="mb-2 underline md:mb-0"><a href="#">Shop</a></li>
+              <li className="mb-2 underline md:mb-0"><Link to="/">Home</Link></li>
+              <li className="mb-2 underline md:mb-0"><Link to="/products/1">Shop</Link></li>
               <li className="mb-2 underline md:mb-0"><a href="#">Categories</a></li>
-              <li className="mb-2 underline md:mb-0"><a href="#">About us</a></li>
+              <li className="mb-2 underline md:mb-0"><Link to="/about">About us</Link></li>
               <li className="mb-2 underline md:mb-0"><a href="#">Contact us</a></li>
-              
             </ul>
             <div className="flex space-x-4 mt-4">
               <a href="#" aria-label="Facebook"><FaFacebook /></a>

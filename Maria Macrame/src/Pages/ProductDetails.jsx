@@ -1,23 +1,20 @@
-// src/pages/ProductDetailPage.jsx
 import Navbar from "@components/Navbar";
 import Subscription from "@components/Subscription";
 import SingleProduct from "@components/SingleProduct";
 import Footer from "@components/Footer";
-
+import CardsSuggestion from "@components/CardsSuggestion";
 
 function ProductDetails() {
-    return (
-      
-      <div>
+  return (
+    <div>
 
-        <Navbar />
-        <SingleProduct />
-        <Subscription />
-        <Footer />
+      <Navbar />
+      <SingleProduct />
+      <CardsSuggestion />
+      <Subscription />
+      <Footer />
+    </div>
+  );
+}
 
-        </div>
-      
-    );
-  }
-  
-  export default ProductDetails;
+export default ProductDetails;

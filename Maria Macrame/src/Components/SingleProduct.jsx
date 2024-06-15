@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus, FaStar, FaRegStar } from 'react-icons/fa';
 import singleProduct from '../assets/singleProduct.png';
+import './SingleProduct.css';
 
 function SingleProductView() {
   const [quantity, setQuantity] = useState(0);
@@ -57,8 +58,8 @@ function SingleProductView() {
             </div>
           </details>
         </div>
-        <button className="w-full py-3 mb-2 bg-teal-900 text-white font-bold rounded-lg">Add to cart</button>
-        <button className="w-full py-3 bg-gray-200 text-teal-900 font-bold rounded-lg">Favorite</button>
+        <button className="w-full py-3 mb-2 bg-teal-900 text-white font-bold   hover:#32cd32  rounded-lg">Add to cart</button>
+        <button className="w-full py-3 bg-gray-200 text-teal-900 font-bold   rounded-lg">Add to Wish list</button>
       </div>
     </div>
   );

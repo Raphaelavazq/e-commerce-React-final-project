@@ -42,7 +42,7 @@ const Subscription = () => {
         />
         <button
           type="submit"
-          className="bg-teal-900 text-white px-6 py-2 rounded-r-md shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50"
+          className="bg-teal-900 text-white px-6 py-2 rounded-r-md shadow-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-900 focus:ring-opacity-50"
         >
           Signup
         </button>

@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // NavItem component to render individual navigation items
 function NavItem({ children, href }) {
   return (
-    <a href={href} className="self-stretch my-auto hover:underline">
+    <Link to={href} className="self-stretch my-auto hover:underline hover:text-lime-500">
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -18,9 +19,10 @@ NavItem.propTypes = {
 // NavItems component to render all navigation items
 function NavItems() {
   const items = [
-    { name: 'Shop', href: '#shop' },
+    { name: 'Home', href: '/' },
+    { name: 'Shop', href: '/products/1' }, // Adjust this path according to your routes
     { name: 'Blog', href: '#blog' },
-    { name: 'About', href: '#about' },
+    { name: 'About', href: '/about' },
   ];
   return (
     <>
@@ -58,9 +60,9 @@ function NavBar() {
       {/* Logo */}
       <div className="flex justify-between items-center w-full md:w-auto">
         <div className="flex items-center space-x-4">
-          <div className="pl-10 text-2xl leading-tight md:text-3xl md:leading-[84px]">
+          <Link to="/" className="pl-10 text-2xl leading-tight md:text-3xl md:leading-[84px]">
             Maria 
-          </div>
+          </Link>
         </div>
         <button
           className="md:hidden text-white text-4xl p-4"
