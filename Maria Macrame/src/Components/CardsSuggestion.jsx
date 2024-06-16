@@ -1,21 +1,38 @@
 import './CardsSuggestion.css';
-import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaShoppingCart, FaPlus } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 import product1 from '../assets/product1.png';
 import product2 from '../assets/product2.png';
 import leaf from '../assets/leaf.png';
 
 const items = [
-  { id: 1, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product1 },
-  { id: 2, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product2 },
-  { id: 3, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product1 },
-  { id: 4, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product2 },
-  { id: 5, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product1 },
-  { id: 6, title: 'Spider Plant', price: '25€', category: 'Outdoor', image: product2 },
+  { id: 1, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
+  { id: 2, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
+  { id: 3, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
+  { id: 4, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
+  { id: 5, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
+  { id: 6, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
 ];
 
 const CardsSuggestion = () => {
+  const { dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const handleAddToCart = (item) => {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: { ...item, qty: 1 },
+    });
+    navigate('/shopping-cart');
+  };
+
+  const handleMoreDetails = (itemId) => {
+    navigate(`/products/${itemId}`);
+  };
+
   return (
     <section className="cards-suggestion-section">
       <div className="title-container">
@@ -40,9 +57,24 @@ const CardsSuggestion = () => {
               <div className="card-content">
                 <h4>{item.title}</h4>
                 <p>{item.category}</p>
-                <p>{item.price}</p>
-                <button className="add-to-cart-btn">
+                <p>{item.price}€</p>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent navigating to the product page
+                    handleAddToCart(item);
+                  }}
+                >
                   <FaShoppingCart /> Add to cart
+                </button>
+                <button
+                  className="more-details-btn"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent navigating to the product page
+                    handleMoreDetails(item.id);
+                  }}
+                >
+                  <FaPlus /> More details
                 </button>
               </div>
             </Link>

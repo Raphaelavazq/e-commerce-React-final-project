@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
+import CartContext from '../context/CartContext';
 
 // NavItem component to render individual navigation items
 function NavItem({ children, href }) {
@@ -49,6 +51,8 @@ function LoginButton() {
 // Main NavBar component
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useContext(CartContext);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.qty, 0);
 
   // Toggle the menu for mobile view
   const toggleMenu = () => {
@@ -80,6 +84,16 @@ function NavBar() {
       >
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           <NavItems />
+          <div className="relative flex items-center">
+            <Link to="/shopping-cart" className="text-3xl relative">
+              <FaShoppingCart />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-lime-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItemCount}
+                </span>
+              )}
+            </Link>
+          </div>
           <LoginButton />
         </div>
       </nav>

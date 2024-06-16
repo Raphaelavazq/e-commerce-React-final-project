@@ -9,8 +9,8 @@ import leaf2 from '../assets/leaf2.png';
 // Array of imported videos
 const videos = [
   { src: aboutVideo1, title: 'How it started', text: 'In 2011 Maria decided to start selling her macrame on the online sphere. With a small Paypal account and FaceBook, we were up and running.' },
-  { src: aboutVideo2, title: 'The web store is live', text: 'In 2021 Henry Klapp decided to start selling his rare sneakers on the online sphere. With a small Paypal account and FaceBook, we were up and running.' },
-  { src: aboutVideo3, title: 'Growth gets bigger', text: 'Our business has been getting bigger and bigger, and now we have 240 employees, 13 stores and over three million web visits every single month.' },
+  { src: aboutVideo2, title: 'The web store is live', text: 'In 2021 Maria decided to start selling her macrame with her Plants on the online sphere. With a small Paypal account and FaceBook, we were up and running.' },
+  { src: aboutVideo3, title: 'Growth gets bigger', text: 'The business has been getting bigger and bigger, and now we have 240 employees, 13 stores and over three million web visits every single month.' },
 ];
 
 function VideoSlider() {

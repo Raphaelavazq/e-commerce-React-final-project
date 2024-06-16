@@ -43,14 +43,14 @@
 h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #32CD32; /* Lime green color */
+  color: #65a20d; /* Lime green color */
   margin-bottom: 0.5rem; /* Small margin below the h1 */
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #008080; /* Green teal color */
+  color: #1d4743; /* Green teal color */
   padding-top: 1rem; /* Padding on top of the h2 */
   margin-bottom: 2rem; /* Space below the h2 */
 }
@@ -151,5 +151,26 @@ h2 {
 }
 
 .add-to-cart-btn svg {
+  margin-right: 0.5rem;
+}
+.more-details-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #65a20d; /* Lime green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.more-details-btn:hover {
+  background-color: #32cd32; /* Darker lime color on hover */
+}
+
+.more-details-btn svg {
   margin-right: 0.5rem;
 }

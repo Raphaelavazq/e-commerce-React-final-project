@@ -9,7 +9,7 @@
   .values-section .section-header {
     font-size: 2rem; /* Smaller font size */
     font-weight: bold;
-    color: #32CD32; /* Lime green color */
+    color: #65a20d; /* Lime green color */
     text-align: center; /* Center align for tablets and mobile */
     line-height: 1.2;
     letter-spacing: 0.33rem;
@@ -20,7 +20,7 @@
   .values-section h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #008080; /* Green teal color */
+    color: #1d4743; /* Dark green color */
     padding-top: 1rem; /* Padding on top of the h2 */
   }
   

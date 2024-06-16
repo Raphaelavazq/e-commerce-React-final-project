@@ -68,6 +68,13 @@
   .login-button:hover {
     background-color: #2e8b57; /* Slightly darker lime green */
   }
+
+  .badge {
+    background-color: #32cd32; /* Lime color */
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+  }
   
   @media (min-width: 768px) {
     .nav-header {

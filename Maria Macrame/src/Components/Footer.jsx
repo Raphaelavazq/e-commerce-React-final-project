@@ -9,7 +9,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           {/* Left side */}
           <div className="mb-8 md:mb-0">
-            <h2 className="text-lg text-centered selection:font-bold mb-4">
+            <h2 className="text-lg text-centered font-bold mb-4">
               <Link to="/">MARIA</Link>
             </h2>
             <h3 className="text-xl font-bold mb-2">Pages</h3>

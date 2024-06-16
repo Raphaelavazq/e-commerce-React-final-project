@@ -1,24 +1,41 @@
-// src/components/SingleProductView.jsx
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaPlus, FaMinus, FaStar, FaRegStar } from 'react-icons/fa';
+import CartContext from '../context/CartContext';
 import singleProduct from '../assets/singleProduct.png';
 import './SingleProduct.css';
 
 function SingleProductView() {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1); // Default to 1
+  const { dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };
 
   const decreaseQuantity = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
   const calculateSubtotal = () => {
-    return quantity * 0; // Assuming the price is 0 for now
+    return quantity * 25; // Example price is 25
+  };
+
+  const addToCart = () => {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        id: 1, // Example product ID
+        name: 'Spider Plant',
+        description: 'Outdoor',
+        price: 25,
+        qty: quantity,
+      },
+    });
+    navigate('/shopping-cart');
   };
 
   return (
@@ -29,13 +46,29 @@ function SingleProductView() {
       <div className="md:w-1/2 p-4">
         <h1 className="text-4xl font-bold mb-4">Spider plant</h1>
         <div className="flex items-center mb-4">
-          <button onClick={decreaseQuantity} className="p-2 bg-gray-200 rounded-full">
-            <FaMinus />
-          </button>
-          <span className="mx-4">{quantity}</span>
-          <button onClick={increaseQuantity} className="p-2 bg-gray-200 rounded-full">
-            <FaPlus />
-          </button>
+          <label htmlFor="quantity" className="mr-2">Qty</label>
+          <div className="flex items-center border px-2 py-1 rounded">
+            <button
+              onClick={decreaseQuantity}
+              disabled={quantity === 1}
+              className="p-1 bg-teal-900 text-white rounded-l focus:outline-none"
+            >
+              <FaMinus />
+            </button>
+            <input
+              type="text"
+              id="quantity"
+              value={quantity}
+              readOnly
+              className="w-12 text-center bg-white border-none"
+            />
+            <button
+              onClick={increaseQuantity}
+              className="p-1 bg-teal-900 text-white rounded-r focus:outline-none"
+            >
+              <FaPlus />
+            </button>
+          </div>
         </div>
         <div className="flex justify-between items-center mb-4">
           <span>You picked {quantity} item{quantity !== 1 ? 's' : ''}</span>
@@ -58,8 +91,10 @@ function SingleProductView() {
             </div>
           </details>
         </div>
-        <button className="w-full py-3 mb-2 bg-teal-900 text-white font-bold   hover:#32cd32  rounded-lg">Add to cart</button>
-        <button className="w-full py-3 bg-gray-200 text-teal-900 font-bold   rounded-lg">Add to Wish list</button>
+        <button onClick={addToCart} className="w-full py-3 mb-2 bg-teal-900 text-white font-bold rounded-lg hover:bg-lime-600">
+          Add to cart
+        </button>
+        <button className="w-full py-3 bg-gray-200 text-teal-900 font-bold rounded-lg">Add to Wish list</button>
       </div>
     </div>
   );
