@@ -1,7 +1,8 @@
-import { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
+import { useContext } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import CartContext from '../context/CartContext';
 
 // NavItem component to render individual navigation items
@@ -14,8 +15,8 @@ function NavItem({ children, href }) {
 }
 
 NavItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired, // Add PropTypes validation
+  href: PropTypes.string.isRequired, // Add PropTypes validation
 };
 
 // NavItems component to render all navigation items
@@ -40,11 +41,12 @@ function NavItems() {
 // LoginButton component for the login button
 function LoginButton() {
   return (
-    <button
+    <Link
+      to="/login"
       className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-lg shadow-sm max-md:px-5 hover:bg-lime-700"
     >
       Log in
-    </button>
+    </Link>
   );
 }
 
@@ -52,7 +54,6 @@ function LoginButton() {
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
-  const cartItemCount = cartItems.reduce((total, item) => total + item.qty, 0);
 
   // Toggle the menu for mobile view
   const toggleMenu = () => {
@@ -84,15 +85,15 @@ function NavBar() {
       >
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           <NavItems />
-          <div className="relative flex items-center">
-            <Link to="/shopping-cart" className="text-3xl relative">
+          <div className="relative">
+            <Link to="/shopping-cart" className="text-white text-2xl p-2">
               <FaShoppingCart />
-              {cartItemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-lime-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  {cartItemCount}
-                </span>
-              )}
             </Link>
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-lime-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                {cartItems.length}
+              </span>
+            )}
           </div>
           <LoginButton />
         </div>
