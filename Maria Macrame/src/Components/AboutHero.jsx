@@ -8,8 +8,7 @@ const AboutHero = () => {
       <div className="about-hero-content">
         <h1>We are more than a shop, this is a lifestyle.</h1>
         <p>
-          World renowned as one of the best stockists of exclusive, stylish
-          footwear and streetwear. Welcome to Kickflip.
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo, reprehenderit alias eligendi .
         </p>
         <button className="about-hero-button">See the shop</button>
         <img src={leaf} alt="Leaf Decoration" className="leaf-left" />

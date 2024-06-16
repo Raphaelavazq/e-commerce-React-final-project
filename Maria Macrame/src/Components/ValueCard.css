@@ -1,0 +1,60 @@
+.values-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: white;
+  }
+  
+  .values-section .section-header {
+    font-size: 2rem; /* Smaller font size */
+    font-weight: bold;
+    color: #32CD32; /* Lime green color */
+    text-align: center; /* Center align for tablets and mobile */
+    line-height: 1.2;
+    letter-spacing: 0.33rem;
+    margin-bottom: 0.5rem;
+    
+  }
+  
+  .values-section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #008080; /* Green teal color */
+    padding-top: 1rem; /* Padding on top of the h2 */
+  }
+  
+  @media (min-width: 768px) {
+    .values-section .section-header,
+    .values-section h2 {
+      text-align: center; 
+    }
+  }
+  
+  .value-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    transition: transform 0.3s ease;
+  }
+  
+  .value-card-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .value-card img {
+    width: 9rem;
+    height: 7rem;
+  }
+  
+  .value-card div {
+    margin-top: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1d4743;
+    text-align: center;
+    line-height: 2rem;
+  }
