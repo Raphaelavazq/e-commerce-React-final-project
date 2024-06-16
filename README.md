@@ -1,6 +1,4 @@
-# Maria Macrame E-Commerce
-
-# Maria - Plant Webshop
+# Maria  E-Commerce
 
 This project is a plant webshop named Maria, which sells a variety of plants and macrame hangers. The site features a responsive design, ensuring optimal layout on various screen sizes, and interactive elements with hover states. It includes functionality for product listings, shopping cart management, user authentication with Google Sign-In, and a login page.
 
