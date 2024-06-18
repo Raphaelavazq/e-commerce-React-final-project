@@ -1,39 +1,74 @@
-import { useParams } from 'react-router-dom';
+import './CardsSuggestion.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaShoppingCart, FaPlus } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 import { products } from '../data/products';
-import Sidebar from '../Components/Sidebar';
-import Navbar from '../Components/Navbar';
-import MovingCards from '../Components/MovingCards';
-import Subscription from '../Components/Subscription';
-import Footer from '../Components/Footer';
-import ProductCard from '../Components/ProductCard';
-import '../Components/ProductCard.css';
-import '../Pages/ShopPage.css';
+import leaf from '../assets/leaf.png';
 
-const ShopPage = () => {
-  const { category } = useParams();
+const CardsSuggestion = () => {
+  const { dispatch } = useContext(CartContext);
+  const navigate = useNavigate();
 
-  const filteredProducts = category === 'all'
-    ? products
-    : products.filter((product) => product.category.toLowerCase() === category.toLowerCase());
+  const handleAddToCart = (item, event) => {
+    event.preventDefault(); // Prevent navigating to the product page
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: { ...item, qty: 1 },
+    });
+    navigate('/shopping-cart');
+  };
+
+  const handleMoreDetails = (itemId, event) => {
+    event.preventDefault(); // Prevent navigating to the product page
+    navigate(`/products/${itemId}`);
+  };
 
   return (
-    <div className="shop-page">
-      <Navbar />
-      <div className="flex flex-col md:flex-row">
-        <Sidebar />
-        <div className="flex-1 p-4">
-          <div className="cards-grid grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+    <section className="cards-suggestion-section">
+      <div className="title-container">
+        <img src={leaf} alt="Leaf Decoration" className="title-leaf title-leaf-left" />
+        <div className="parent-container">
+          <h1>IF YOU LIKE THOSE</h1>
+          <h2>You might love these</h2>
         </div>
+        <img src={leaf} alt="Leaf Decoration" className="title-leaf title-leaf-right" />
       </div>
-      <MovingCards className="cards-suggestion-section" />
-      <Subscription />
-      <Footer />
-    </div>
+
+      <div className="cards-grid">
+        {products.map((product) => (
+          <motion.div
+            key={product.id}
+            className="card"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link to={`/products/${product.id}`} className="card-link">
+              <img src={product.image} alt={product.name} className="card-image" />
+              <div className="card-content">
+                <h4>{product.name}</h4>
+                <p>{product.category}</p>
+                <p>{product.price}€</p>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={(e) => handleAddToCart(product, e)}
+                >
+                  <FaShoppingCart /> Add to cart
+                </button>
+                <button
+                  className="more-details-btn"
+                  onClick={(e) => handleMoreDetails(product.id, e)}
+                >
+                  <FaPlus /> More details
+                </button>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 };
 
-export default ShopPage;
+export default CardsSuggestion;

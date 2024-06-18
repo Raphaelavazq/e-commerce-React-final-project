@@ -1,33 +1,54 @@
 /* src/components/Sidebar.css */
 .sidebar {
-    padding: 1rem;
-    width: 200px; /* Set a fixed width */
-  }
-  
-  .sidebar-title {
-    margin-bottom: 8rem;
-    text-align: center;
-  }
-  
-  .sidebar-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-item {
-    margin-bottom: 0.5rem;
-  }
-  
-  .sidebar-link {
-    display: block;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-  }
-  
-  .sidebar-link:hover {
-    color: #65a20d; /* Lime color on hover */
-    text-decoration: underline;
-  }
+  padding: 1rem;
+  width: 200px; /* Set a fixed width */
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #124e4a; /* Match the background color of the sidebar */
+}
+
+.sidebar-title {
+  margin-bottom: 8rem;
+  text-align: center;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+  display: block;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  color: #65a20d; /* Lime color on hover */
+  text-decoration: underline;
+}
+
+.search-bar input {
+  border: 2px solid #65a20d; /* Lime border color */
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.search-bar input:focus {
+  border-color: #65a20d; /* Lime border color on focus */
+}
+
+.price-filter input[type='range'] {
+  accent-color: #65a20d; /* Change the color of the slider thumb */
+}

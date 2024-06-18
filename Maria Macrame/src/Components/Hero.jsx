@@ -1,6 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import heroVideo from '../assets/herovideo.mp4'; // Adjust the import path as necessary
 
 function Hero() {
+  const navigate = useNavigate();
+
+  const handleShopNowClick = () => {
+    navigate('/shop/all');
+  };
+
+  const handleLearnMoreClick = () => {
+    navigate('/about');
+  };
+
   return (
     <section className="pt-20 pb-10 bg-white flex flex-col items-center">
       <div className="relative w-full max-w-7xl px-4 md:px-12">
@@ -27,11 +38,17 @@ function Hero() {
             </h1>
             <div className="flex gap-3.5 justify-center md:justify-start mt-8 text-sm lg:text-base">
               {/* Shop Now Button */}
-              <button className="px-6 py-3 text-white bg-teal-900 rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50">
+              <button 
+                onClick={handleShopNowClick}
+                className="px-6 py-3 text-white bg-teal-900 rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50"
+              >
                 Shop now
               </button>
               {/* Learn More Button */}
-              <button className="px-6 py-3 text-white bg-lime-600 rounded-md shadow-sm hover:bg-lime-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50">
+              <button 
+                onClick={handleLearnMoreClick}
+                className="px-6 py-3 text-white bg-lime-600 rounded-md shadow-sm hover:bg-lime-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50"
+              >
                 Learn more
               </button>
             </div>

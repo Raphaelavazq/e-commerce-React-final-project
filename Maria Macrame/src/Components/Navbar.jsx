@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -54,6 +53,9 @@ function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
 
+  // Calculate total item count including quantities
+  const totalItemCount = cartItems.reduce((total, item) => total + item.qty, 0);
+
   // Toggle the menu for mobile view
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -88,10 +90,10 @@ function NavBar() {
             <Link to="/shopping-cart" className="text-white text-2xl p-2">
               <FaShoppingCart />
             </Link>
-            {cartItems.length > 0 && (
+            {totalItemCount > 0 && (
               <span className="absolute top-3 -right-2 bg-lime-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-  {cartItems.length}
-</span>
+                {totalItemCount}
+              </span>
             )}
           </div>
           <LoginButton />
