@@ -1,14 +1,20 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { FaPlus, FaMinus, FaStar, FaRegStar } from 'react-icons/fa';
 import CartContext from '../context/CartContext';
-import singleProduct from '../assets/singleProduct.png';
+import { products } from '../data/products';
 import './SingleProduct.css';
 
-function SingleProductView() {
-  const [quantity, setQuantity] = useState(1); // Default to 1
+function SingleProduct() {
+  const { productId } = useParams();
+  const product = products.find(p => p.id === parseInt(productId));
+  const [quantity, setQuantity] = useState(1);
   const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -21,17 +27,17 @@ function SingleProductView() {
   };
 
   const calculateSubtotal = () => {
-    return quantity * 25; // Example price is 25
+    return quantity * product.price;
   };
 
   const addToCart = () => {
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
-        id: 1, // Example product ID
-        name: 'Spider Plant',
-        description: 'Outdoor',
-        price: 25,
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
         qty: quantity,
       },
     });
@@ -41,10 +47,37 @@ function SingleProductView() {
   return (
     <div className="container mx-auto p-4 flex flex-col md:flex-row items-center">
       <div className="md:w-1/2 p-4">
-        <img src={singleProduct} alt="Spider plant" className="w-full h-auto rounded-lg" />
+        <img src={product.image} alt={product.name} className="w-full h-auto rounded-lg" />
       </div>
       <div className="md:w-1/2 p-4">
-        <h1 className="text-4xl font-bold mb-4">Spider plant</h1>
+        <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+        <div className="mb-4">
+          <h2 className="text-2xl font-bold mb-2">Description</h2>
+          <p className="mb-4">{product.description}</p>
+          <h3 className="text-xl font-bold mb-2">Details</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li><strong>Category:</strong> {product.category}</li>
+            <li><strong>Care Level:</strong> {product.careLevel}</li>
+            <li><strong>Light:</strong> {product.light}</li>
+            <li><strong>Water:</strong> {product.water}</li>
+            <li><strong>Pet Friendly:</strong> {product.petFriendly ? 'Yes' : 'No'}</li>
+          </ul>
+          <details className="mb-2">
+            <summary className="cursor-pointer">Delivery and returns</summary>
+            <p>Details about delivery and returns...</p>
+          </details>
+          <details>
+            <summary className="cursor-pointer">Customer reviews (23)</summary>
+            <div className="flex items-center">
+              <FaStar className="text-yellow-500" />
+              <FaStar className="text-yellow-500" />
+              <FaStar className="text-yellow-500" />
+              <FaStar className="text-yellow-500" />
+              <FaRegStar className="text-yellow-500" />
+              <span className="ml-2">4.5 stars</span>
+            </div>
+          </details>
+        </div>
         <div className="flex items-center mb-4">
           <label htmlFor="quantity" className="mr-2">Qty</label>
           <div className="flex items-center border px-2 py-1 rounded">
@@ -74,23 +107,6 @@ function SingleProductView() {
           <span>You picked {quantity} item{quantity !== 1 ? 's' : ''}</span>
           <span className="text-2xl font-bold">{calculateSubtotal()}€</span>
         </div>
-        <div className="mb-4">
-          <details className="mb-2">
-            <summary className="cursor-pointer">Delivery and returns</summary>
-            <p>Details about delivery and returns...</p>
-          </details>
-          <details>
-            <summary className="cursor-pointer">Customer reviews (23)</summary>
-            <div className="flex items-center">
-              <FaStar className="text-yellow-500" />
-              <FaStar className="text-yellow-500" />
-              <FaStar className="text-yellow-500" />
-              <FaStar className="text-yellow-500" />
-              <FaRegStar className="text-yellow-500" />
-              <span className="ml-2">4.5 stars</span>
-            </div>
-          </details>
-        </div>
         <button onClick={addToCart} className="w-full py-3 mb-2 bg-teal-900 text-white font-bold rounded-lg hover:bg-lime-600">
           Add to cart
         </button>
@@ -100,4 +116,4 @@ function SingleProductView() {
   );
 }
 
-export default SingleProductView;
+export default SingleProduct;

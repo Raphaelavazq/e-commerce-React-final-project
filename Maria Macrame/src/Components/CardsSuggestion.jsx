@@ -4,24 +4,15 @@ import { FaShoppingCart, FaPlus } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
-import product1 from '../assets/product1.png';
-import product2 from '../assets/product2.png';
+import { products } from '../data/products';
 import leaf from '../assets/leaf.png';
-
-const items = [
-  { id: 1, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
-  { id: 2, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
-  { id: 3, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
-  { id: 4, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
-  { id: 5, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product1 },
-  { id: 6, title: 'Spider Plant', price: 25, category: 'Outdoor', image: product2 },
-];
 
 const CardsSuggestion = () => {
   const { dispatch } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const handleAddToCart = (item) => {
+  const handleAddToCart = (item, event) => {
+    event.preventDefault(); // Prevent navigating to the product page
     dispatch({
       type: 'ADD_TO_CART',
       payload: { ...item, qty: 1 },
@@ -29,7 +20,8 @@ const CardsSuggestion = () => {
     navigate('/shopping-cart');
   };
 
-  const handleMoreDetails = (itemId) => {
+  const handleMoreDetails = (itemId, event) => {
+    event.preventDefault(); // Prevent navigating to the product page
     navigate(`/products/${itemId}`);
   };
 
@@ -45,34 +37,28 @@ const CardsSuggestion = () => {
       </div>
 
       <div className="cards-grid">
-        {items.map((item) => (
+        {products.map((product) => (
           <motion.div
-            key={item.id}
+            key={product.id}
             className="card"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to={`/products/${item.id}`} className="card-link">
-              <img src={item.image} alt={item.title} className="card-image" />
+            <Link to={`/products/${product.id}`} className="card-link">
+              <img src={product.image} alt={product.name} className="card-image" />
               <div className="card-content">
-                <h4>{item.title}</h4>
-                <p>{item.category}</p>
-                <p>{item.price}€</p>
+                <h4>{product.name}</h4>
+                <p>{product.category}</p>
+                <p>{product.price}€</p>
                 <button
                   className="add-to-cart-btn"
-                  onClick={(e) => {
-                    e.preventDefault(); // Prevent navigating to the product page
-                    handleAddToCart(item);
-                  }}
+                  onClick={(e) => handleAddToCart(product, e)}
                 >
                   <FaShoppingCart /> Add to cart
                 </button>
                 <button
                   className="more-details-btn"
-                  onClick={(e) => {
-                    e.preventDefault(); // Prevent navigating to the product page
-                    handleMoreDetails(item.id);
-                  }}
+                  onClick={(e) => handleMoreDetails(product.id, e)}
                 >
                   <FaPlus /> More details
                 </button>

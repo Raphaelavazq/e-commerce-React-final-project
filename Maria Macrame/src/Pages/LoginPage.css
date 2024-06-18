@@ -1,6 +1,6 @@
 /* src/components/LoginPage.css */
 .login-section {
-    margin-top: 2rem; /* Add margin to the top */
+    margin-top: 10rem; /* Add margin to the top */
     display: flex;
     flex-direction: column;
     align-items: center;

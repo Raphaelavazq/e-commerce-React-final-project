@@ -1,0 +1,33 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    padding: 1rem;
+    width: 200px; /* Set a fixed width */
+  }
+  
+  .sidebar-title {
+    margin-bottom: 8rem;
+    text-align: center;
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar-link {
+    display: block;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+  }
+  
+  .sidebar-link:hover {
+    color: #65a20d; /* Lime color on hover */
+    text-decoration: underline;
+  }

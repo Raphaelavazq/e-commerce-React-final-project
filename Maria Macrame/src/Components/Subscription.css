@@ -19,8 +19,9 @@
 }
 
 .leaf2 {
-  top: 140px; /* Adjust positioning for mobile */
+  top: 0px; /* Move the leaf higher */
   right: 5px; /* Adjust positioning for mobile */
+  z-index: 20; /* Ensure it's in front */
 }
 
 /* For tablets and larger screens */
@@ -35,7 +36,7 @@
   }
 
   .leaf2 {
-    top: 0px;
+    top: 0px; /* Move the leaf higher */
     right: 0px; /* Adjust positioning for larger screens */
   }
 }
@@ -48,7 +49,9 @@
   }
 
   .leaf2 {
-    top: 0px;
+    top: 0px; /* Move the leaf higher */
     right: 0px; /* Adjust positioning for larger screens */
+    transform: translateY(-90%);
+    z-index: 20; 
   }
 }

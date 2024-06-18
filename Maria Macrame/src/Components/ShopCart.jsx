@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 import CartContext from '../context/CartContext';
-import singleProduct from '../assets/singleProduct.png';
+
 
 const ShopCart = () => {
   // Access cart items and dispatch function from the CartContext
@@ -37,7 +37,7 @@ const ShopCart = () => {
         ) : (
           cartItems.map((item) => (
             <div key={item.id} className="cart-item flex justify-between items-center mb-4 p-6 border-b">
-              <img src={singleProduct} alt={item.name} className="w-28 h-28 rounded-lg" />
+              <img src={item.image} alt={item.name} className="w-28 h-28 rounded-lg" />
               <div className="cart-item-details flex-1 ml-4">
                 <h3 className="text-xl font-semibold">{item.name}</h3>
                 <p>{item.description}</p>

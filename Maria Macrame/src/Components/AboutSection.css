@@ -62,7 +62,7 @@
   
   .leaf-right {
     bottom: 10%;
-    right: -50px;
+    right: 50px;
   }
   
   @media (max-width: 768px) {

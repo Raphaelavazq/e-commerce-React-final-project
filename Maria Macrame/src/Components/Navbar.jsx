@@ -1,8 +1,8 @@
-import { useState } from 'react';
+// src/components/Navbar.jsx
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useContext } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
 import CartContext from '../context/CartContext';
 
 // NavItem component to render individual navigation items
@@ -15,17 +15,16 @@ function NavItem({ children, href }) {
 }
 
 NavItem.propTypes = {
-  children: PropTypes.node.isRequired, // Add PropTypes validation
-  href: PropTypes.string.isRequired, // Add PropTypes validation
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
 // NavItems component to render all navigation items
 function NavItems() {
   const items = [
     { name: 'Home', href: '/' },
-    { name: 'Shop', href: '/products/1' }, // Adjust this path according to your routes
-    { name: 'Blog', href: '#blog' },
-    { name: 'About', href: '/about' },
+    { name: 'About', href: '/about' }, // Adjust this path according to your routes
+    { name: 'Shop', href: '/shop/all' }, // Adjust this path according to your routes
   ];
   return (
     <>
@@ -43,7 +42,7 @@ function LoginButton() {
   return (
     <Link
       to="/login"
-      className="justify-center self-stretch px-6 py-3.5 text-base bg-lime-600 rounded-lg shadow-sm max-md:px-5 hover:bg-lime-700"
+      className="justify-center px-6 py-3.5 text-base bg-lime-600 rounded-lg shadow-sm max-md:px-5 hover:bg-lime-700"
     >
       Log in
     </Link>
@@ -90,9 +89,9 @@ function NavBar() {
               <FaShoppingCart />
             </Link>
             {cartItems.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-lime-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                {cartItems.length}
-              </span>
+              <span className="absolute top-3 -right-2 bg-lime-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+  {cartItems.length}
+</span>
             )}
           </div>
           <LoginButton />
