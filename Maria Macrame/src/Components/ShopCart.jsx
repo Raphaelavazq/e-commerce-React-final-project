@@ -1,13 +1,12 @@
-import { useContext } from 'react';
-import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
+import { useContext, useState } from 'react';
+import { FaTrash, FaMinus, FaPlus, FaHeart } from 'react-icons/fa';
 import CartContext from '../context/CartContext';
-
+import './ShopCart.css';
 
 const ShopCart = () => {
-  // Access cart items and dispatch function from the CartContext
   const { cartItems, dispatch } = useContext(CartContext);
+  const [clickedItems, setClickedItems] = useState({});
 
-  // Handle quantity change
   const handleQtyChange = (id, qty) => {
     dispatch({
       type: 'UPDATE_QUANTITY',
@@ -15,7 +14,6 @@ const ShopCart = () => {
     });
   };
 
-  // Handle item removal from cart
   const handleRemoveFromCart = (id) => {
     dispatch({
       type: 'REMOVE_FROM_CART',
@@ -23,7 +21,13 @@ const ShopCart = () => {
     });
   };
 
-  // Calculate subtotal and total cost
+  const handleFavorite = (id) => {
+    setClickedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
   const deliveryFee = 5; // Example fixed delivery fee
   const total = subtotal + deliveryFee;
@@ -36,13 +40,21 @@ const ShopCart = () => {
           <p className="text-teal-900 font-bold mb-4">Your cart is empty.</p>
         ) : (
           cartItems.map((item) => (
-            <div key={item.id} className="cart-item flex justify-between items-center mb-4 p-6 border-b">
-              <img src={item.image} alt={item.name} className="w-28 h-28 rounded-lg" />
-              <div className="cart-item-details flex-1 ml-4">
-                <h3 className="text-xl font-semibold">{item.name}</h3>
+            <div key={item.id} className="cart-item">
+              <img src={item.image} alt={item.name} className="cart-item-image" />
+              <div className="cart-item-details">
+                <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <p className="text-xl font-bold">{item.price}€</p>
                 <div className="flex items-center mt-2">
+                  <button
+                    onClick={() => handleFavorite(item.id)}
+                    className={`mr-2 p-2 bg-teal-900 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50 heart-icon ${
+                      clickedItems[item.id] ? 'clicked' : ''
+                    }`}
+                  >
+                    <FaHeart />
+                  </button>
                   <label htmlFor={`qty-${item.id}`} className="mr-2">Qty</label>
                   <div className="flex items-center border px-2 py-1 rounded">
                     <button
@@ -66,13 +78,13 @@ const ShopCart = () => {
                       <FaPlus />
                     </button>
                   </div>
+                  <button
+                    onClick={() => handleRemoveFromCart(item.id)}
+                    className="ml-2 p-2 bg-teal-900 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50"
+                  >
+                    <FaTrash />
+                  </button>
                 </div>
-                <button
-                  onClick={() => handleRemoveFromCart(item.id)}
-                  className="mt-2 p-2 bg-teal-900 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50"
-                >
-                  <FaTrash />
-                </button>
               </div>
             </div>
           ))

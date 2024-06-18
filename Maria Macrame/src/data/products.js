@@ -1,4 +1,25 @@
-// src/data/products.js
+import spiderPlant from '../assets/spider-plant.png';
+import monstera from '../assets/monstera.png';
+import fiddleLeafFig from '../assets/fiddle-leaf-fig.png';
+import snakePlant from '../assets/snake-plant.png';
+import aloeVera from '../assets/aloe-vera.png';
+import peaceLily from '../assets/peace-lily.png';
+import rosemary from '../assets/rosemary.png';
+import lavender from '../assets/lavender.png';
+import basil from '../assets/basil.png';
+import mint from '../assets/mint.png';
+import jadePlant from '../assets/jade-plant.png';
+import cactus from '../assets/cactus.png';
+import plantFertilizer from '../assets/plant-fertilizer.png';
+import pruningShears from '../assets/pruning-shears.png';
+import wateringCan from '../assets/watering-can.png';
+import pottingSoil from '../assets/potting-soil.png';
+import plantStand from '../assets/plant-stand.png';
+import macramePlantHanger from '../assets/macrame-plant-hanger.png';
+import plantLabels from '../assets/plant-labels.png';
+import gardenGloves from '../assets/garden-gloves.png';
+
+
 const products = [
   {
     id: 1,
@@ -10,7 +31,7 @@ const products = [
     light: 'Bright Indirect Light',
     water: 'Every 1-2 weeks',
     petFriendly: true,
-    image: 'path/to/spider-plant.jpg'
+    image: spiderPlant,
   },
   {
     id: 2,
@@ -22,7 +43,7 @@ const products = [
     light: 'Bright Indirect Light',
     water: 'Every 1-2 weeks',
     petFriendly: false,
-    image: 'path/to/monstera.jpg'
+    image: monstera,
   },
   {
     id: 3,
@@ -34,7 +55,7 @@ const products = [
     light: 'Bright Indirect Light',
     water: 'Every 1-2 weeks',
     petFriendly: false,
-    image: 'path/to/fiddle-leaf-fig.jpg'
+    image: fiddleLeafFig,
   },
   {
     id: 4,
@@ -46,7 +67,7 @@ const products = [
     light: 'Low to Bright Indirect Light',
     water: 'Every 2-3 weeks',
     petFriendly: false,
-    image: 'path/to/snake-plant.jpg'
+    image: snakePlant,
   },
   {
     id: 5,
@@ -58,7 +79,7 @@ const products = [
     light: 'Bright Indirect Light',
     water: 'Every 3 weeks',
     petFriendly: false,
-    image: 'path/to/aloe-vera.jpg'
+    image: aloeVera,
   },
   {
     id: 6,
@@ -70,7 +91,7 @@ const products = [
     light: 'Low to Bright Indirect Light',
     water: 'Every 1-2 weeks',
     petFriendly: false,
-    image: 'path/to/peace-lily.jpg'
+    image: peaceLily,
   },
   {
     id: 7,
@@ -82,7 +103,7 @@ const products = [
     light: 'Full Sun',
     water: 'Every 1-2 weeks',
     petFriendly: true,
-    image: 'path/to/rosemary.jpg'
+    image: rosemary,
   },
   {
     id: 8,
@@ -94,7 +115,7 @@ const products = [
     light: 'Full Sun',
     water: 'Every 1-2 weeks',
     petFriendly: true,
-    image: 'path/to/lavender.jpg'
+    image: lavender,
   },
   {
     id: 9,
@@ -106,7 +127,7 @@ const products = [
     light: 'Full Sun',
     water: 'Every 1-2 weeks',
     petFriendly: true,
-    image: 'path/to/basil.jpg'
+    image: basil,
   },
   {
     id: 10,
@@ -118,7 +139,7 @@ const products = [
     light: 'Full Sun to Partial Shade',
     water: 'Every 1-2 weeks',
     petFriendly: true,
-    image: 'path/to/mint.jpg'
+    image: mint,
   },
   {
     id: 11,
@@ -130,7 +151,7 @@ const products = [
     light: 'Full Sun to Partial Shade',
     water: 'Every 2-3 weeks',
     petFriendly: false,
-    image: 'path/to/jade-plant.jpg'
+    image: jadePlant,
   },
   {
     id: 12,
@@ -142,7 +163,7 @@ const products = [
     light: 'Full Sun',
     water: 'Every 3-4 weeks',
     petFriendly: false,
-    image: 'path/to/cactus.jpg'
+    image: cactus,
   },
   {
     id: 13,
@@ -154,7 +175,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: false,
-    image: 'path/to/plant-fertilizer.jpg'
+    image: plantFertilizer,
   },
   {
     id: 14,
@@ -166,7 +187,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/pruning-shears.jpg'
+    image: pruningShears,
   },
   {
     id: 15,
@@ -178,7 +199,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/watering-can.jpg'
+    image: wateringCan,
   },
   {
     id: 16,
@@ -190,7 +211,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/potting-soil.jpg'
+    image: pottingSoil,
   },
   {
     id: 17,
@@ -202,7 +223,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/plant-stand.jpg'
+    image: plantStand,
   },
   {
     id: 18,
@@ -214,7 +235,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/macrame-plant-hanger.jpg'
+    image: macramePlantHanger,
   },
   {
     id: 19,
@@ -226,7 +247,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/plant-labels.jpg'
+    image: plantLabels,
   },
   {
     id: 20,
@@ -238,7 +259,7 @@ const products = [
     light: 'N/A',
     water: 'N/A',
     petFriendly: true,
-    image: 'path/to/garden-gloves.jpg'
+    image: gardenGloves,
   }
 ];
 

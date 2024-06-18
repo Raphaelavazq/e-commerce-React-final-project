@@ -1,8 +1,50 @@
+/* src/Components/SingleProduct.css */
+
+.product-image-container {
+  overflow: hidden;
+  width: 200%; /* Make the container take full width */
+  max-width: 900px; /* Increase max width for larger images */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Ensure the height is auto */
+}
+
+.product-image-container img {
+  transition: transform 0.3s ease;
+  max-width: 200%;
+  max-height: 300%;
+}
+
+.product-image-container img:hover {
+  transform: scale(2.1); /* Adjust scale to zoom in on hover */
+}
 
 button {
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: limegreen;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: limegreen;
+}
+
+.heart-icon {
+  transition: color 0.3s ease;
+}
+
+.heart-icon:hover,
+.heart-icon.clicked {
+  color: #65a20d; /* Apply the hover color and clicked color */
+}
+
+.list-none {
+  list-style-type: none;
+}
+
+.list-none li {
+  margin-bottom: 0.5rem;
+}
+
+.list-none li span {
+  color: #65a20d; /* Lime green color for bold text */
 }

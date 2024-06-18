@@ -1,26 +1,26 @@
 /* src/components/ProductList.css */
 .product-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media (min-width: 640px) {
-    .product-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+@media (min-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  @media (min-width: 768px) {
-    .product-list {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  .product-item {
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+}
+
+.product-item {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

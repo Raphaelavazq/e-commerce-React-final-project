@@ -1,0 +1,104 @@
+/* src/Components/ShopCart.css */
+
+.shopping-cart-container {
+  margin-bottom: 40px; /* Adjust the value as needed */
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #65a20d; /* Apply the border bottom color */
+}
+
+.cart-item-image {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Ensure consistent size */
+  object-fit: cover; /* Ensure the image covers the container */
+  border-radius: 8px; /* Optional: add some rounding for a nicer look */
+}
+
+.cart-item-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.cart-item-details h3 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #65a20d; /* Apply the color to the h3 text */
+}
+
+.cart-item-details p {
+  margin-bottom: 10px;
+}
+
+.heart-icon {
+  transition: color 0.3s ease;
+}
+
+.heart-icon:hover,
+.heart-icon.clicked {
+  color: #65a20d; /* Apply the hover color and clicked color */
+}
+
+@media (max-width: 1024px) {
+  .shopping-cart-container {
+    flex-direction: column;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item-image {
+    width: 80px; /* Smaller image size for smaller screens */
+    height: 80px;
+  }
+
+  .cart-item-details {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .cart-item-details h3 {
+    font-size: 1.75rem; /* Slightly smaller text for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    padding: 15px;
+  }
+
+  .cart-item-image {
+    width: 70px; /* Smaller image size for smaller screens */
+    height: 70px;
+  }
+
+  .cart-item-details h3 {
+    font-size: 1.5rem; /* Smaller text for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item {
+    padding: 10px;
+  }
+
+  .cart-item-image {
+    width: 60px; /* Smaller image size for smaller screens */
+    height: 60px;
+  }
+
+  .cart-item-details h3 {
+    font-size: 1.25rem; /* Smaller text for smaller screens */
+  }
+
+  .cart-item-details p {
+    font-size: 0.875rem; /* Smaller paragraph text for smaller screens */
+  }
+}

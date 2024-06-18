@@ -1,8 +1,11 @@
+/* src/Components/CardsSuggestion.css */
+
 .cards-suggestion-section {
   padding: 2rem;
   background-color: white;
   text-align: center;
   position: relative;
+  margin-top: 40px; /* Adjust the value to create space above the section */
 }
 
 .title-container {
@@ -22,13 +25,12 @@
 .title-leaf-left {
   left: 180px;
   top: 150px; 
-  width: 10%;/* Adjust the value to move the leaf to the left */
+  width: 10%; /* Adjust the value to move the leaf to the left */
 }
 
 .title-leaf-right {
   right: 250px;
-  width: 13%
- 
+  width: 13%;
 }
 
 .parent-container {
@@ -153,6 +155,7 @@ h2 {
 .add-to-cart-btn svg {
   margin-right: 0.5rem;
 }
+
 .more-details-btn {
   display: flex;
   align-items: center;
