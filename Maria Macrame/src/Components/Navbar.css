@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 120%;
   }
   
   .nav-logo {
@@ -58,8 +58,8 @@
     justify-content: center;
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
-    background-color: #32CD32; /* Lime green color */
-    border-radius: 0.5rem; /* Equivalent to 8px */
+    background-color: #32CD32; 
+    border-radius: 0.5rem; 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     color: white;
     transition: background-color 0.3s ease;

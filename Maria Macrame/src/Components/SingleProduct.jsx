@@ -6,14 +6,15 @@ import { products } from '../data/products';
 import './SingleProduct.css';
 
 function SingleProduct() {
-  const { productId } = useParams();
-  const product = products.find(p => p.id === parseInt(productId));
-  const [quantity, setQuantity] = useState(1);
-  const { dispatch } = useContext(CartContext);
-  const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { productId } = useParams(); // Get the product ID from the URL parameters
+  const product = products.find(p => p.id === parseInt(productId)); // Find the product with the matching ID
+  const [quantity, setQuantity] = useState(1); // State for managing the product quantity
+  const { dispatch } = useContext(CartContext); // Access the dispatch function from CartContext
+  const navigate = useNavigate(); // Hook for navigation
+  const [isFavorite, setIsFavorite] = useState(false); // State for managing the favorite status
 
   useEffect(() => {
+    // Set the height of the image container to match the details container height
     const imageContainer = document.querySelector('.product-image-container');
     const detailsContainer = document.querySelector('.details-container');
     if (imageContainer && detailsContainer) {
@@ -22,24 +23,25 @@ function SingleProduct() {
   }, []);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Product not found</div>; // Show a message if the product is not found
   }
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    setQuantity(quantity + 1); // Increase the product quantity by 1
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(quantity - 1); // Decrease the product quantity by 1, but not below 1
     }
   };
 
   const calculateSubtotal = () => {
-    return quantity * product.price;
+    return quantity * product.price; // Calculate the subtotal based on the quantity and product price
   };
 
   const addToCart = () => {
+    // Dispatch an action to add the product to the cart
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
@@ -50,10 +52,11 @@ function SingleProduct() {
         qty: quantity,
       },
     });
-    navigate('/shopping-cart');
+    navigate('/shopping-cart'); // Navigate to the shopping cart page
   };
 
   const handleMouseMove = (e) => {
+    // Update the transform-origin of the image based on the mouse position
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
@@ -61,7 +64,7 @@ function SingleProduct() {
   };
 
   const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+    setIsFavorite(!isFavorite); // Toggle the favorite status of the product
   };
 
   return (
@@ -147,3 +150,46 @@ function SingleProduct() {
 }
 
 export default SingleProduct;
+
+/*
+Explanation:
+
+1. Imports:
+   - Import necessary hooks, icons, context, data, and CSS.
+   - `useState`, `useContext`, `useEffect`, `useParams`, and `useNavigate` from 'react' and 'react-router-dom'.
+   - `FaPlus`, `FaMinus`, `FaStar`, `FaRegStar`, and `FaHeart` from 'react-icons/fa'.
+   - `CartContext` for managing the cart state.
+   - `products` data for product details.
+   - CSS for styling.
+
+2. SingleProduct Component:
+   - Retrieves the product ID from the URL parameters using `useParams`.
+   - Finds the product with the matching ID from the `products` array.
+   - Initializes state variables for quantity, favorite status, and dispatch function from the cart context.
+   - Sets the height of the image container to match the details container height using `useEffect`.
+
+3. Product Not Found:
+   - If the product is not found, it returns a "Product not found" message.
+
+4. Quantity Management:
+   - `increaseQuantity`: Increases the product quantity by 1.
+   - `decreaseQuantity`: Decreases the product quantity by 1, but not below 1.
+   - `calculateSubtotal`: Calculates the subtotal based on the quantity and product price.
+
+5. Add to Cart:
+   - Dispatches an action to add the product to the cart with the specified quantity.
+   - Navigates to the shopping cart page after adding the product to the cart.
+
+6. Image Mouse Move:
+   - Updates the transform-origin of the image based on the mouse position for a zoom effect.
+
+7. Toggle Favorite:
+   - Toggles the favorite status of the product.
+
+8. Render:
+   - Renders the product details including image, name, description, category, care level, light, water, and pet friendliness.
+   - Renders quantity controls, favorite button, and add to cart button.
+   - Uses CSS classes for styling and layout.
+
+This setup provides a detailed view of a single product with functionality to adjust the quantity, mark as favorite, and add to the cart.
+*/

@@ -8,9 +8,7 @@ import Footer from "@components/Footer";
 function ShoppingCart() {
   return (
     <div>
-
       <Navbar />
-      
       <ShopCart />
       <LeafDecoration />
       <CardsSuggestion />

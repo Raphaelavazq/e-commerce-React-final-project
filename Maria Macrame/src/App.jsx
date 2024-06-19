@@ -5,6 +5,7 @@ import About from '@pages/About';
 import ShoppingCart from '@pages/ShoppingCart';
 import ShopPage from '@pages/ShopPage';
 import LoginPage from '@pages/LoginPage';
+import Checkout from '@pages/Checkout'; // Import the Checkout component
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/shopping-cart" element={<ShoppingCart />} />
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/checkout" element={<Checkout />} /> 
         </Routes>
       </Router>
     </CartProvider>

@@ -49,7 +49,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-xs">
-          made with <FaHeart className="inline-block" /> by DevElla © all rights reserved 2024
+          made with <FaHeart className="inline-block" /> by Raphaella 
         </div>
       </div>
     </footer>

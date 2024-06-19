@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import CartContext from '../context/CartContext';
+import logo from '../assets/Maria-logo.png'; // Adjust the import path as necessary
 
 // NavItem component to render individual navigation items
 function NavItem({ children, href }) {
@@ -66,8 +67,8 @@ function NavBar() {
       {/* Logo */}
       <div className="flex justify-between items-center w-full md:w-auto">
         <div className="flex items-center space-x-4">
-          <Link to="/" className="pl-10 text-2xl leading-tight md:text-3xl md:leading-[84px]">
-            Maria 
+          <Link to="/" className="pl-10 md:pl-0 text-2xl leading-tight md:text-3xl md:leading-[84px]">
+            <img src={logo} alt="Maria Logo" className="h-16 md:h-40" />
           </Link>
         </div>
         <button

@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FaShoppingCart } from 'react-icons/fa';
 import { cn } from "../utils/cn";
 import CartContext from '../context/CartContext';
-import { products } from '../data/products'; // Importing products
+import { products } from '../data/products'; 
+import './MovingCards.css';
 
 const MovingCards = () => {
   const containerRef = useRef(null);
