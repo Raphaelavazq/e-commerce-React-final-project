@@ -1,15 +1,16 @@
-// src/components/ShopCart.jsx
-import { useContext, useState } from 'react';
-import { FaTrash, FaMinus, FaPlus, FaHeart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import CartContext from '../context/CartContext';
-import './ShopCart.css';
+// Importing necessary libraries and components
+import { useContext, useState } from 'react'; // React hooks for state management and context
+import { FaTrash, FaMinus, FaPlus, FaHeart } from 'react-icons/fa'; // Icons from react-icons library
+import { useNavigate } from 'react-router-dom'; // For navigation within the app
+import CartContext from '../context/CartContext'; // Custom context for cart state
+import './ShopCart.css'; // Styles for the ShopCart component
 
 const ShopCart = () => {
-  const { cartItems, dispatch } = useContext(CartContext);
-  const [clickedItems, setClickedItems] = useState({});
-  const navigate = useNavigate();
+  const { cartItems, dispatch } = useContext(CartContext); // Getting cart items and dispatch function from CartContext
+  const [clickedItems, setClickedItems] = useState({}); // State to track clicked favorite items
+  const navigate = useNavigate(); // Hook for navigation
 
+  // Function to handle quantity changes
   const handleQtyChange = (id, qty) => {
     dispatch({
       type: 'UPDATE_QUANTITY',
@@ -17,6 +18,7 @@ const ShopCart = () => {
     });
   };
 
+  // Function to handle removing items from the cart
   const handleRemoveFromCart = (id) => {
     dispatch({
       type: 'REMOVE_FROM_CART',
@@ -24,6 +26,7 @@ const ShopCart = () => {
     });
   };
 
+  // Function to handle favoriting items
   const handleFavorite = (id) => {
     setClickedItems((prev) => ({
       ...prev,
@@ -31,6 +34,7 @@ const ShopCart = () => {
     }));
   };
 
+  // Calculating subtotal and total
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
   const deliveryFee = 5; // Example fixed delivery fee
   const total = subtotal + deliveryFee;
@@ -124,7 +128,7 @@ const ShopCart = () => {
         </div>
         <button 
           className="w-full py-3 bg-teal-900 text-white font-bold rounded-lg"
-          onClick={() => navigate('/checkout')} // <-- This line navigates to the checkout page
+          onClick={() => navigate('/checkout')} // Navigates to the checkout page
         >
           Checkout
         </button>
@@ -134,3 +138,36 @@ const ShopCart = () => {
 };
 
 export default ShopCart;
+
+/*
+Explanation:
+
+1. **Imports**:
+   - Importing React hooks (`useContext`, `useState`) for state management.
+   - Importing `FaTrash`, `FaMinus`, `FaPlus`, and `FaHeart` from `react-icons` for icon usage.
+   - Importing `useNavigate` from `react-router-dom` for navigation.
+   - Importing `CartContext` for accessing the cart state and dispatch function.
+   - Importing the component's CSS for styling.
+
+2. **ShopCart Component**:
+   - The `ShopCart` component displays the items in the shopping cart, allows users to update quantities, remove items, and proceed to checkout.
+   - Uses `useContext` to access the cart items and dispatch function from `CartContext`.
+   - Uses `useState` to manage the state of clicked favorite items.
+   - Defines functions to handle quantity changes, removing items, and favoriting items.
+   - Calculates the subtotal and total for the order.
+
+3. **JSX Structure**:
+   - Renders the shopping cart container with flexbox layout.
+   - If the cart is empty, displays a message indicating the cart is empty.
+   - Maps over the `cartItems` array to display each item in the cart.
+     - Includes an image, name, price, description, quantity controls, and buttons for favoriting and removing items.
+   - Displays the order summary with subtotal, delivery fee, and total.
+   - Includes an input for promo code and a button to proceed to checkout, navigating to the `/checkout` route.
+
+4. **Styling**:
+   - Applies classes for styling the cart container, items, and buttons.
+   - Uses `className` to conditionally apply classes based on state (e.g., `clicked` class for favorited items).
+
+5. **Navigation**:
+   - Uses `useNavigate` to navigate to the checkout page when the checkout button is clicked.
+*/

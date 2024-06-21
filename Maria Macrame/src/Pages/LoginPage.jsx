@@ -1,18 +1,22 @@
 // src/components/LoginPage.jsx
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../firebase';
-import leaf1 from '../assets/leaf1.png';
-import leaf2 from '../assets/leaf2.png';
-import './LoginPage.css';
 
+// Importing necessary libraries and components
+import { useState } from 'react'; // Importing useState hook for managing component state
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook for navigation
+import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing icons from react-icons
+import { signInWithPopup } from 'firebase/auth'; // Importing signInWithPopup function from Firebase
+import { auth, provider } from '../firebase'; // Importing Firebase authentication and provider configuration
+import leaf1 from '../assets/leaf1.png'; // Importing leaf decoration image
+import leaf2 from '../assets/leaf2.png'; // Importing leaf decoration image
+import './LoginPage.css'; // Importing CSS for the LoginPage component
+
+// Defining the LoginPage component
 export function LoginPage() {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisibility = () => setPasswordShown((cur) => !cur);
-  const navigate = useNavigate();
+  const [passwordShown, setPasswordShown] = useState(false); // State for managing password visibility
+  const togglePasswordVisibility = () => setPasswordShown((cur) => !cur); // Function to toggle password visibility
+  const navigate = useNavigate(); // Hook for navigation
 
+  // Function to handle Google Sign-In
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -24,6 +28,7 @@ export function LoginPage() {
       });
   };
 
+  // Function to handle Skip Sign-In
   const handleSkipSignIn = () => {
     navigate('/');
   };
@@ -41,7 +46,7 @@ export function LoginPage() {
         className="leaf-decoration leaf2"
       />
       <div className="login-container">
-        <h3 className="mb-2 text-3xl bold  text-lime-600">Sign In</h3>
+        <h3 className="mb-2 text-3xl bold text-lime-600">Sign In</h3>
         <p className="mb-16 text-gray-600 font-normal text-[18px]">
           Enter your email and password to sign in
         </p>
@@ -98,7 +103,7 @@ export function LoginPage() {
           >
             Skip
           </button>
-          <p className="mt-4 text-center text-sm  text-zink-600">
+          <p className="mt-4 text-center text-sm text-zink-600">
             Not registered?{' '}
             <a href="#" className="font-medium text-lime-600">Create account</a>
           </p>
@@ -109,3 +114,36 @@ export function LoginPage() {
 }
 
 export default LoginPage;
+
+/*
+Explanation:
+
+1. Imports:
+   - Import necessary hooks, icons, Firebase functions, and assets.
+   - `useState`, `useNavigate` for managing state and navigation.
+   - `FaGoogle`, `FaEye`, `FaEyeSlash` for icons.
+   - `signInWithPopup` for Firebase Google authentication.
+   - CSS file for styling the LoginPage component.
+
+2. Component Definition:
+   - `LoginPage` component defined as a functional component.
+   - Uses `useState` to manage the visibility of the password field.
+   - `togglePasswordVisibility` function toggles the state of `passwordShown`.
+   - `useNavigate` hook for navigation after successful login.
+
+3. Google Sign-In:
+   - `handleGoogleSignIn` function handles Google Sign-In using Firebase.
+   - On successful sign-in, navigates to the home page.
+   - On error, logs the error to the console.
+
+4. Skip Sign-In:
+   - `handleSkipSignIn` function navigates to the home page without signing in.
+
+5. Render:
+   - Renders a login section with leaf decorations, sign-in form, and buttons.
+   - Sign-in form includes fields for email and password with a toggle button for password visibility.
+   - Includes buttons for Google Sign-In and Skip Sign-In.
+   - Uses CSS classes for styling and layout.
+
+This setup provides a user-friendly login page with options for Google Sign-In, email/password login, and skipping the login process.
+*/

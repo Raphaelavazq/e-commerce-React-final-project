@@ -53,3 +53,11 @@
 .price-filter input[type='range'] {
   accent-color: #65a20d; /* Change the color of the slider thumb */
 }
+/* Add this at the top of your Sidebar.css */
+
+/* Hide sidebar on tablet and mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

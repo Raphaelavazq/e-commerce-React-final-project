@@ -1,15 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import heroVideo from '../assets/herovideo.mp4'; // Adjust the import path as necessary
+import { useNavigate } from 'react-router-dom'; // Importing the useNavigate hook from react-router-dom for navigation
+import heroVideo from '../assets/herovideo.mp4'; // Adjust the import path as necessary for the video file
 
 function Hero() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initializing the navigate function for routing
 
+  // Function to handle the "Shop Now" button click
   const handleShopNowClick = () => {
-    navigate('/shop/all');
+    navigate('/shop/all'); // Navigates to the shop page with 'all' category
   };
 
+  // Function to handle the "Learn More" button click
   const handleLearnMoreClick = () => {
-    navigate('/about');
+    navigate('/about'); // Navigates to the about page
   };
 
   return (
@@ -26,7 +28,7 @@ function Hero() {
               playsInline
               style={{ height: '100%', maxHeight: '500px' }}
             >
-              <source src={heroVideo} type="video/mp4" />
+              <source src={heroVideo} type="video/mp4" /> {/* Setting the video source */}
               Your browser does not support the video tag.
             </video>
           </div>
@@ -39,14 +41,14 @@ function Hero() {
             <div className="flex gap-3.5 justify-center md:justify-start mt-8 text-sm lg:text-base">
               {/* Shop Now Button */}
               <button 
-                onClick={handleShopNowClick}
+                onClick={handleShopNowClick} // Adding onClick handler for Shop Now button
                 className="px-6 py-3 text-white bg-teal-900 rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50"
               >
                 Shop now
               </button>
               {/* Learn More Button */}
               <button 
-                onClick={handleLearnMoreClick}
+                onClick={handleLearnMoreClick} // Adding onClick handler for Learn More button
                 className="px-6 py-3 text-white bg-lime-600 rounded-md shadow-sm hover:bg-lime-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50"
               >
                 Learn more
@@ -59,4 +61,40 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Hero; // Exporting the Hero component
+
+/* Explanation:
+
+1. **Imports**:
+   - `useNavigate` from `react-router-dom` is imported for navigation.
+   - The hero video file is imported to be used in the component.
+
+2. **Hero Component**:
+   - Defined as a functional component.
+
+3. **useNavigate Hook**:
+   - `useNavigate` is initialized to facilitate routing when buttons are clicked.
+
+4. **Event Handlers**:
+   - `handleShopNowClick`: Navigates to the shop page with 'all' category.
+   - `handleLearnMoreClick`: Navigates to the about page.
+
+5. **JSX Structure**:
+   - The component is structured with a section containing the video and text content.
+   - **Video Content**:
+     - A video element is included which auto-plays, loops, and is muted.
+     - The video file is sourced from the imported `heroVideo`.
+   - **Text Content**:
+     - Includes a heading with a multi-line message.
+     - Contains two buttons: "Shop now" and "Learn more".
+     - Both buttons are styled and have event handlers for navigation.
+
+6. **Styling**:
+   - Tailwind CSS classes are used for styling.
+   - Video and text content are responsive, adapting to different screen sizes.
+
+7. **Export**:
+   - The `Hero` component is exported for use in other parts of the application.
+
+This `Hero` component is designed to be a prominent section on the homepage, encouraging users to explore the shop or learn more about the business.
+*/

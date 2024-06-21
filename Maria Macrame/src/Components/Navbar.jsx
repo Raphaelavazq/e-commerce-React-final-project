@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
-import PropTypes from 'prop-types';
-import CartContext from '../context/CartContext';
-import logo from '../assets/Maria-logo.png'; // Adjust the import path as necessary
+import { useState, useContext } from 'react'; // Import necessary hooks and context from React
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import { FaShoppingCart } from 'react-icons/fa'; // Import shopping cart icon
+import PropTypes from 'prop-types'; // Import PropTypes for type checking
+import CartContext from '../context/CartContext'; // Import CartContext for cart management
+import logo from '../assets/Maria-logo.png'; // Import logo image
 
 // NavItem component to render individual navigation items
 function NavItem({ children, href }) {
@@ -15,16 +15,16 @@ function NavItem({ children, href }) {
 }
 
 NavItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired, // PropType for children, required
+  href: PropTypes.string.isRequired, // PropType for href, required
 };
 
 // NavItems component to render all navigation items
 function NavItems() {
   const items = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' }, // Adjust this path according to your routes
-    { name: 'Shop', href: '/shop/all' }, // Adjust this path according to your routes
+    { name: 'About', href: '/about' }, // Path for About page
+    { name: 'Shop', href: '/shop/all' }, // Path for Shop page
   ];
   return (
     <>
@@ -51,8 +51,8 @@ function LoginButton() {
 
 // Main NavBar component
 function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cartItems } = useContext(CartContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control the mobile menu
+  const { cartItems } = useContext(CartContext); // Access cart items from CartContext
 
   // Calculate total item count including quantities
   const totalItemCount = cartItems.reduce((total, item) => total + item.qty, 0);
@@ -68,7 +68,7 @@ function NavBar() {
       <div className="flex justify-between items-center w-full md:w-auto">
         <div className="flex items-center space-x-4">
           <Link to="/" className="pl-10 md:pl-0 text-2xl leading-tight md:text-3xl md:leading-[84px]">
-            <img src={logo} alt="Maria Logo" className="h-16 md:h-40" />
+            <img src={logo} alt="Maria Logo" className="h-16 md:h-40" /> {/* Display logo */}
           </Link>
         </div>
         <button
@@ -76,7 +76,7 @@ function NavBar() {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          ☰
+          ☰ {/* Mobile menu toggle button */}
         </button>
       </div>
 
@@ -86,18 +86,18 @@ function NavBar() {
         role="navigation"
       >
         <div className="flex flex-col md:flex-row md:items-center gap-5">
-          <NavItems />
+          <NavItems /> {/* Render navigation items */}
           <div className="relative">
             <Link to="/shopping-cart" className="text-white text-2xl p-2">
-              <FaShoppingCart />
+              <FaShoppingCart /> {/* Shopping cart icon */}
             </Link>
             {totalItemCount > 0 && (
               <span className="absolute top-3 -right-2 bg-lime-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                {totalItemCount}
+                {totalItemCount} {/* Display total item count */}
               </span>
             )}
           </div>
-          <LoginButton />
+          <LoginButton /> {/* Render login button */}
         </div>
       </nav>
     </header>
@@ -105,3 +105,42 @@ function NavBar() {
 }
 
 export default NavBar;
+
+/*
+Explanation:
+
+1. **Imports**:
+   - Importing hooks (`useState`, `useContext`) and `Link` from `react-router-dom`.
+   - Importing `FaShoppingCart` from `react-icons` for the cart icon.
+   - Importing `PropTypes` for type checking.
+   - Importing `CartContext` to access and manage cart state.
+   - Importing the logo image.
+
+2. **NavItem Component**:
+   - This component renders individual navigation items.
+   - It takes `children` and `href` as props and uses `Link` to navigate to the specified `href`.
+
+3. **NavItems Component**:
+   - This component renders a list of navigation items.
+   - It maps over a list of items and uses the `NavItem` component to render each one.
+
+4. **LoginButton Component**:
+   - This component renders the login button with a `Link` to the login page.
+
+5. **NavBar Component**:
+   - Main component for the navigation bar.
+   - Manages the state for the mobile menu (`isMenuOpen`).
+   - Calculates the total item count in the cart, including quantities.
+   - Contains a function (`toggleMenu`) to toggle the mobile menu.
+
+6. **JSX Structure**:
+   - Contains the logo, navigation items, shopping cart icon with item count, and login button.
+   - Uses Tailwind CSS classes for styling and responsiveness.
+   - The `isMenuOpen` state controls the visibility of the mobile menu.
+   - The total item count is displayed as a badge on the shopping cart icon.
+
+7. **Styling**:
+   - Tailwind CSS classes are used for styling, ensuring a responsive design.
+   - The logo image is displayed with specified heights for different screen sizes.
+   - The mobile menu toggle button is styled for easy access on smaller screens.
+*/
