@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://your-live-site-url.com](#)
-- Figma File: [View Design in Figma](https://your-figma-file-url.com)
+- Live Site URL: [[https://your-live-site-url.com](https://raphaelavazq.github.io/e-commerce-React-final-project/)](#)
+- Figma File: [View Design in Figma]((https://www.figma.com/design/zp6efoo0pcCU0wmPOrz7NT/MARIA-MACRAME?t=5WYDEW0RA4n4K1N9-1))
 
 ## Installation and Setup
 
