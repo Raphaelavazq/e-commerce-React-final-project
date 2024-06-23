@@ -135,7 +135,7 @@ As I continue to develop this project, I aim to:
 
 ## Author
 
-Rafaela Vaz Quaresma  
+Rafaela Vaz   
 Frontend Mentor - [@Raphaelavazq](https://www.frontendmentor.io/profile/Raphaelavazq)  
 Github - [@Raphaelavazq](https://github.com/Raphaelavazq)
 
