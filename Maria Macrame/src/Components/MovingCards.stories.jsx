@@ -1,4 +1,3 @@
-import React from 'react';
 import MovingCards from './MovingCards';
 
 export default {
